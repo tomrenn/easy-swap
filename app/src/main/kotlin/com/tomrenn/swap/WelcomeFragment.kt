@@ -23,6 +23,7 @@ class WelcomeFragment : Fragment(), OnConnectionFailedListener {
     val GOOGLE_SIGN_IN = 0;
     val googleSignIn: SignInButton by bindView(R.id.googleSignIn)
     lateinit var googleApiClient: GoogleApiClient
+    lateinit var mainCallbacks : MainCallbacks
 
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -33,6 +34,13 @@ class WelcomeFragment : Fragment(), OnConnectionFailedListener {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         googleApiClient = buildGoogleClient()
+        val parentActivity = activity
+        if (parentActivity is MainCallbacks) {
+            mainCallbacks = parentActivity;
+        } else {
+            throw IllegalStateException("Parent activity must implement MainCallback")
+        }
+
         googleSignIn.setStyle(SignInButton.SIZE_WIDE, SignInButton.COLOR_AUTO)
         googleSignIn.setOnClickListener { signIn() }
     }
@@ -53,6 +61,7 @@ class WelcomeFragment : Fragment(), OnConnectionFailedListener {
                 Timber.d(acct.displayName)
                 Timber.d(acct.email)
                 Timber.d(acct.photoUrl.toString())
+                mainCallbacks.googleSignIn(acct)
             }
         }
     }

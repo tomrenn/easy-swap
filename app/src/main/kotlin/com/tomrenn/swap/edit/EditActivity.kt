@@ -1,7 +1,8 @@
-package com.tomrenn.swap
+package com.tomrenn.swap.edit
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.tomrenn.swap.R
 
 /**
  *

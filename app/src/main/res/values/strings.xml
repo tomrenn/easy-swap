@@ -9,6 +9,10 @@
 
 
     <string name="hint_phone">Phone Number</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_tagline">Tagline</string>
+    <string name="hint_twitter">Twitter</string>
 
     <string name="large_text">
         "Material is the metaphor.\n\n"

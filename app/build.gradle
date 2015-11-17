@@ -36,4 +36,5 @@ dependencies {
     // Kotlin STD Library
     compile 'org.jetbrains.kotlin:kotlin-stdlib:1.0.0-beta-1103'
     compile 'com.jakewharton.timber:timber:4.1.0'
+    compile 'com.squareup.okio:okio:1.6.0'
 }
